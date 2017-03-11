@@ -4,25 +4,26 @@ Python Shutil Module Drill
 
 '''
 
-import shutil
-import os
+from shutil import copy
+from os import listdir, path, remove
 
 src_FolderA = "C:\Users\Student\Desktop\Folder A"
 dst_FolderB = "C:\Users\Student\Desktop\Folder B"
-src_files = os.listdir(src_FolderA)
-dst_files = os.listdir(dst_FolderB)
 
 def copyDeleteFiles():
+    src_files = listdir(src_FolderA)
     for files in src_files:
-        origFile = os.path.join(src_FolderA, files)
-        if os.path.isfile(origFile):
-            shutil.copy(origFile, dst_FolderB)
-            os.remove(origFile)
-            
+        origFile = path.join(src_FolderA, files)
+        if path.isfile(origFile):
+            copy(origFile, dst_FolderB)
+            remove(origFile)
+
+def listCopiedFiles():
+    dst_files = listdir(dst_FolderB)
     for copiedFiles in dst_files:
-        eachCopiedFile = os.path.join(dst_FolderB, copiedFiles)
+        eachCopiedFile = path.join(dst_FolderB, copiedFiles)
         print eachCopiedFile
 
 print "The following files were successfully moved: \n"
 copyDeleteFiles()
-
+listCopiedFiles()
