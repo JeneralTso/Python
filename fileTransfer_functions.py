@@ -40,6 +40,7 @@ def transfer(self):
         if (time_now_epoch - timestamp) <= timeframe:
             copy(origFile, destDir)
             remove(origFile)
+    messagebox.showinfo(title='Success!',message='Your files have been transferred. \nHave a wonderful day. :-)')
 
 def clear(self):
     self.field_src.delete(0,END)
