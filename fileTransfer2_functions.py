@@ -19,25 +19,26 @@ timeframe = 86400 #seconds in 24 hours
 
 
 def create_table(self):
-    c.execute('CREATE TABLE IF NOT EXISTS filechecks(datetime TEXT)')
+    c.execute('CREATE TABLE IF NOT EXISTS filechecks(col_datetime TEXT)')
     conn.commit
 
 def show_datetime(self):
     print ('tralala')
-    c.execute('SELECT * FROM filechecks ORDER BY datetime DESC LIMIT 1') 
-##    dateTime = c.fetchone()  
-##
-##    #What if there is no data in the database? If statement...
-##
-##
-##    dateTime_str = dateTime.strftime('%m-%d-%Y %H:%M:%S')
-##    
-##    self.dateTime.set(dateTime_str)
+    c.execute('SELECT * FROM filechecks ORDER BY col_datetime DESC LIMIT 1') 
+    dateTime = c.fetchone()
+    print (dateTime)
+
+    #What if there is no data in the database? If statement...
+
+
+    #dateTime_str = dateTime.strftime('%m-%d-%Y %H:%M:%S')
+    
+    #self.dateTime.set(dateTime_str)
 
 print ('trololo')
 
 def send_datetime(self):
-    c.execute('INSERT INTO filechecks (datetime) VALUES (?)',(time_now))
+    c.execute('INSERT INTO filechecks (col_datetime) VALUES (?)',(time_now,))
     conn.commit()
     #c.close()     
     #conn.close()  Put these two into some kind of on window close function.
@@ -72,7 +73,7 @@ def transfer(self):
             copy(origFile, destDir)
             remove(origFile)
     messagebox.showinfo(title='Success!',message='Your files have been transferred. \nHave a wonderful day. :-)')
-    send_datetime()
+    send_datetime(self)
 
 # Clear all fields    
 def clear(self):

@@ -20,13 +20,13 @@ def window(self):
     self.field_dest = ttk.Entry(self.master,width=59,text='',textvariable=self.destDir)
     self.field_dest.grid(row=4,column=0,columnspan=4,padx=15,sticky='e')
 
-    ttk.Button(self.master,text='Browse',command=lambda:fileTransfer_functions.browseSrc(self)).grid(row=2,column=4,columnspan=1,padx=2,sticky='w')
-    ttk.Button(self.master,text='Browse',command=lambda:fileTransfer_functions.browseDest(self)).grid(row=4,column=4,columnspan=1,padx=2,sticky='w')
+    ttk.Button(self.master,text='Browse',command=lambda:fileTransfer2_functions.browseSrc(self)).grid(row=2,column=4,columnspan=1,padx=2,sticky='w')
+    ttk.Button(self.master,text='Browse',command=lambda:fileTransfer2_functions.browseDest(self)).grid(row=4,column=4,columnspan=1,padx=2,sticky='w')
 
-    ttk.Button(self.master, text='List Files',command=lambda:fileTransfer_functions.listFiles(self)).grid(row=5,column=0,padx=15,pady='15',sticky='w')
+    ttk.Button(self.master, text='List Files',command=lambda:fileTransfer2_functions.listFiles(self)).grid(row=5,column=0,padx=15,pady='15',sticky='w')
 
-    ttk.Button(self.master,text='Transfer',command=lambda:fileTransfer_functions.transfer(self)).grid(row=8,column=1,sticky='nw')
-    ttk.Button(self.master,text='Clear All',command=lambda:fileTransfer_functions.clear(self)).grid(row=8,column=3,sticky='nw')
+    ttk.Button(self.master,text='Transfer',command=lambda:fileTransfer2_functions.transfer(self)).grid(row=8,column=1,sticky='nw')
+    ttk.Button(self.master,text='Clear All',command=lambda:fileTransfer2_functions.clear(self)).grid(row=8,column=3,sticky='nw')
 
     self.scrollbar = Scrollbar(self.master,orient=VERTICAL)
     self.listbox = Listbox(self.master,width=72,height=8,yscrollcommand=self.scrollbar.set)
