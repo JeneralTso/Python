@@ -26,23 +26,21 @@ def show_datetime(self):
     print ('tralala')
     c.execute('SELECT * FROM filechecks ORDER BY col_datetime DESC LIMIT 1') 
     dateTime = c.fetchone()
-    print (dateTime)
-
-    #What if there is no data in the database? If statement...
+    #What if there is no data in the database? 
 
 
-    #dateTime_str = dateTime.strftime('%m-%d-%Y %H:%M:%S')
-    
-    #self.dateTime.set(dateTime_str)
+    dateTime_str = datetime.strptime(dateTime[0], '%Y-%m-%d %H:%M:%S.%f').strftime('%m-%d-%Y %H:%M:%S')
+    self.date_and_time.set(dateTime_str)
 
 print ('trololo')
 
 def send_datetime(self):
     c.execute('INSERT INTO filechecks (col_datetime) VALUES (?)',(time_now,))
-    conn.commit()
-    #c.close()     
-    #conn.close()  Put these two into some kind of on window close function.
+    conn.commit()  
 
+##def on_quit(self):
+##    c.close()     
+##    conn.close()
 
 def browseSrc(self):
     sourceDirectory = filedialog.askdirectory(initialdir="C:\\")
@@ -80,7 +78,7 @@ def clear(self):
     self.field_src.delete(0,END)
     self.field_dest.delete(0,END)
     self.listbox.delete(0,END)
-    
+
 
 if __name__ == "__main__":
     pass

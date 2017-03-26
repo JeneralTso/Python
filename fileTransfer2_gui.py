@@ -35,11 +35,12 @@ def window(self):
     self.scrollbar.grid(row=6,column=4,padx=5,sticky='nse')
 
     # New part with time stamp functionality added
-    ttk.Label(self.master, text='Datetime of last file check: ').grid(row=9,column=0,columnspan=2,padx=15,pady=20,sticky='sw')
-    
-    self.dateTime = StringVar()
-    self.lbl_dateTime = ttk.Label(self.master, text='No previous record.')  #textvariable=self.dateTime
-    self.lbl_dateTime.grid(row=9,column=1,columnspan=2,pady=20,sticky='se')
+    self.date_and_time = StringVar()  #How can I get this to print the string and not the variable type?
+    ttk.Label(self.master, text='     Datetime of last file check:').grid(row=9,column=0,columnspan=2,pady=20,sticky='sw')
+    ##self.label_datetime = ttk.Label(self.master, text='Datetime of last file check: {}'.format(str(self.date_and_time)))
+    ##self.label_datetime.grid(row=9,column=0,columnspan=2,padx=15,pady=20,sticky='sw')  
+    self.lbl_datetime = ttk.Label(self.master, textvariable=self.date_and_time)
+    self.lbl_datetime.grid(row=9,column=1,columnspan=2,pady=20,sticky='se')
         
     
 if __name__ == "__main__":
